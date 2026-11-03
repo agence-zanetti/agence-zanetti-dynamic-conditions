@@ -1,5 +1,9 @@
 # Agence Zanetti Dynamic Conditions
 
+## 1.8.2
+
+- Nom affiché : Agence Zanetti – Dynamic Conditions. Le fichier VEILLE.md n'est plus inclus dans le zip.
+
 ## 1.8.1
 
 - Added updates from the public GitHub repository (`agence-zanetti/agence-zanetti-dynamic-conditions`). Updates now appear in the WordPress Updates screen, the plugins list and MainWP.

@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Agence Zanetti Dynamic Conditions
+ * Plugin Name: Agence Zanetti – Dynamic Conditions
  * Description: Conditional visibility for Elementor. Maintained fork of Dynamic Conditions by RTO GmbH, preserving existing dynamicconditions_* settings.
  * Plugin URI: https://github.com/agence-zanetti/agence-zanetti-dynamic-conditions
- * Version: 1.8.1
+ * Version: 1.8.2
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * Author: Agence Zanetti
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'AZDC_VERSION', '1.8.1' );
+define( 'AZDC_VERSION', '1.8.2' );
 define( 'AZDC_FILE', __FILE__ );
 define( 'AZDC_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AZDC_URL', plugin_dir_url( __FILE__ ) );
@@ -42,7 +42,7 @@ function azdc_activation_check(): void {
     if ( azdc_original_plugin_loaded() ) {
         deactivate_plugins( plugin_basename( __FILE__ ) );
         wp_die(
-            esc_html__( 'Deactivate the original “Dynamic Conditions” plugin before activating Agence Zanetti Dynamic Conditions.', 'dynamicconditions' ),
+            esc_html__( 'Deactivate the original “Dynamic Conditions” plugin before activating Agence Zanetti – Dynamic Conditions.', 'dynamicconditions' ),
             esc_html__( 'Plugin activation blocked', 'dynamicconditions' ),
             [ 'back_link' => true ]
         );
@@ -66,7 +66,7 @@ function azdc_dependency_notice(): void {
     if ( $missing ) {
         printf(
             '<div class="notice notice-error"><p><strong>%1$s</strong> %2$s</p></div>',
-            esc_html__( 'Agence Zanetti Dynamic Conditions:', 'dynamicconditions' ),
+            esc_html__( 'Agence Zanetti – Dynamic Conditions:', 'dynamicconditions' ),
             esc_html( sprintf( __( 'missing dependency: %s.', 'dynamicconditions' ), implode( ', ', $missing ) ) )
         );
     }
@@ -78,7 +78,7 @@ function azdc_conflict_notice(): void {
     }
     printf(
         '<div class="notice notice-error"><p><strong>%1$s</strong> %2$s</p></div>',
-        esc_html__( 'Agence Zanetti Dynamic Conditions:', 'dynamicconditions' ),
+        esc_html__( 'Agence Zanetti – Dynamic Conditions:', 'dynamicconditions' ),
         esc_html__( 'the original Dynamic Conditions plugin is active. Deactivate it before using this fork.', 'dynamicconditions' )
     );
 }

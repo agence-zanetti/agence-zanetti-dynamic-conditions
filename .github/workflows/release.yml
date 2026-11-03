@@ -68,7 +68,7 @@ jobs:
         if: steps.exists.outputs.exists == 'false'
         run: |
           mkdir -p build/agence-zanetti-dynamic-conditions
-          rsync -a --exclude '.git' --exclude '.github' --exclude 'build' --exclude 'README.md' --exclude 'tests' ./ build/agence-zanetti-dynamic-conditions/
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'build' --exclude 'README.md' --exclude 'tests' --exclude 'VEILLE.md' ./ build/agence-zanetti-dynamic-conditions/
           cd build
           zip -rq agence-zanetti-dynamic-conditions.zip agence-zanetti-dynamic-conditions
           unzip -l agence-zanetti-dynamic-conditions.zip

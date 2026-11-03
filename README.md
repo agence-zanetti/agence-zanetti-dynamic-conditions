@@ -1,4 +1,4 @@
-# Agence Zanetti Dynamic Conditions
+# Agence Zanetti – Dynamic Conditions
 
 Fork maintenu par l'Agence Zanetti du plugin [Dynamic Conditions](https://wordpress.org/plugins/dynamicconditions/) (RTO GmbH, GPL-2.0-or-later) pour Elementor.
 

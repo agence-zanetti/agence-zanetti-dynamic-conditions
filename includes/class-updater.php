@@ -165,7 +165,7 @@ final class Updater {
             : esc_html__( 'See the release page on GitHub.', 'dynamicconditions' );
 
         return (object) [
-            'name'          => 'Agence Zanetti Dynamic Conditions',
+            'name'          => 'Agence Zanetti – Dynamic Conditions',
             'slug'          => self::SLUG,
             'version'       => $release['version'],
             'author'        => 'Agence Zanetti',
