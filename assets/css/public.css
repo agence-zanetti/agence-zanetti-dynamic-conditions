@@ -1,0 +1,15 @@
+.azdc-debug {
+    box-sizing: border-box;
+    margin: 8px 0;
+    padding: 8px;
+    max-width: 100%;
+    overflow: auto;
+    border: 1px dashed #999;
+    background: #fff;
+    color: #222;
+    font: 12px/1.4 monospace;
+}
+.azdc-debug pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}

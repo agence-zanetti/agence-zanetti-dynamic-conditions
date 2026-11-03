@@ -1,0 +1,20 @@
+.elementor-control-dynamicconditions_section .elementor-control-field-description {
+    line-height: 1.45;
+}
+
+body.elementor-editor-active .elementor-element.dc-has-condition::after {
+    content: '\e8ed';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    z-index: 999;
+    font-size: 15px;
+    font-family: eicons;
+    color: #71d7f7;
+    pointer-events: none;
+}
+
+body.elementor-editor-active .elementor-element.dc-has-condition {
+    outline: 1px dashed rgba(255, 0, 0, 0.3);
+}
