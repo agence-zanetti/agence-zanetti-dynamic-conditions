@@ -1,11 +1,11 @@
-=== Agence Zanetti – Dynamic Conditions ===
+=== Agence Zanetti - Dynamic Conditions ===
 Contributors: agence-zanetti
 Tags: elementor, conditions, dynamic tags, visibility
 Requires at least: 6.5
 Requires PHP: 7.4
 
 PHP 8.1 or newer is recommended for maintained production environments.
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Maintained fork of Dynamic Conditions by RTO GmbH.
 
 == Description ==
 
-Agence Zanetti – Dynamic Conditions is a maintained fork of Dynamic Conditions 1.7.5.
+Agence Zanetti - Dynamic Conditions is a maintained fork of Dynamic Conditions 1.7.5.
 It intentionally preserves the original Elementor setting IDs beginning with `dynamicconditions_`
 and the `numberposts` dynamic-tag name so existing Elementor content can continue to work without a data migration.
 
@@ -37,7 +37,7 @@ Main goals of 1.8.0:
 1. Back up the site and database.
 2. Upload this plugin while the original Dynamic Conditions plugin is still installed but do not activate both.
 3. Deactivate the original Dynamic Conditions plugin.
-4. Activate Agence Zanetti – Dynamic Conditions.
+4. Activate Agence Zanetti - Dynamic Conditions.
 5. Test representative pages/templates, especially ACF date conditions, Loop/Theme Builder templates, popups and any Expert options.
 6. Remove the original plugin only after validation.
 
@@ -51,6 +51,9 @@ Because Elementor 4 changes its element architecture, Atomic support should be v
 The 1.8.0 package has passed PHP syntax checks, JavaScript syntax checks and local smoke tests for core condition evaluation. This is not a formal third-party security audit or a substitute for staging tests with the exact WordPress/Elementor/ACF stack used by a production site.
 
 == Changelog ==
+
+= 1.8.3 =
+* Nom affiché : Agence Zanetti - Dynamic Conditions (trait d'union au lieu du tiret demi-cadratin).
 
 = 1.8.2 =
 * Nom affiché : Agence Zanetti – Dynamic Conditions. Le fichier VEILLE.md n'est plus inclus dans le zip.

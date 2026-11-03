@@ -1,5 +1,9 @@
 # Agence Zanetti Dynamic Conditions
 
+## 1.8.3
+
+- Nom affiché : Agence Zanetti - Dynamic Conditions (trait d'union au lieu du tiret demi-cadratin).
+
 ## 1.8.2
 
 - Nom affiché : Agence Zanetti – Dynamic Conditions. Le fichier VEILLE.md n'est plus inclus dans le zip.
