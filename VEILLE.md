@@ -1,6 +1,6 @@
 # Veille hebdomadaire
 
-Dernier relevé : 2026-11-03
+Dernier relevé : 2026-11-09
 
 | Élément | Version relevée |
 |---|---|
@@ -8,6 +8,6 @@ Dernier relevé : 2026-11-03
 | WordPress | 7.1.4 |
 | Elementor | 4.3.6 (2026-11-02) |
 | Elementor Pro | 4.3.6 (2026-11-02) |
-| Notre fork | 1.8.1 |
+| Notre fork | 1.8.3 |
 
-Résultat : rien à signaler. Hooks, classes et contrôles Elementor utilisés par le fork vérifiés dans Elementor 4.3.6 (tous présents, aucun déprécié). Syntaxe PHP OK.
+Résultat : rien à signaler. Aucune nouvelle version (plugin d'origine, WordPress, Elementor, Elementor Pro) depuis le relevé du 2026-11-03. Syntaxe PHP OK.
