@@ -1,41 +1,41 @@
 # Veille hebdomadaire
 
-Dernier relevé : 2026-11-16
+Dernier relevé : 2026-11-23
 
 | Élément | Version relevée |
 |---|---|
 | Dynamic Conditions d'origine (RTO GmbH) | 1.7.5 (dernière mise à jour 2025-02-11) |
-| WordPress | 7.1.4 |
-| Elementor | 4.4.0 (2026-11-09) |
-| Elementor Pro | 4.4.0 (2026-11-09) |
+| WordPress | 7.1.5 |
+| Elementor | 4.4.1 (2026-11-16) |
+| Elementor Pro | 4.4.1 (2026-11-16) |
 | Notre fork | 1.8.3 |
 
-Résultat : **aucun problème critique ni important**. Quelques points mineurs, listés plus bas, sans correction.
+Résultat : **aucun problème critique ni important**. Les points mineurs déjà connus restent valables (liste plus bas), sans correction.
 
 **Audit incomplet sur deux points** (voir « Limites de l'audit »).
 
-## Ce qui a changé depuis le 2026-11-09
+## Ce qui a changé depuis le 2026-11-16
 
-- Elementor 4.3.6 → 4.4.0 et Elementor Pro → 4.4.0. Le plugin d'origine et WordPress n'ont pas changé.
-- Compatibilité avec Elementor 4.4.0 vérifiée dans le code téléchargé sur wordpress.org (comparaison avec la 4.3.6) :
-  - les crochets `elementor/element/after_section_end`, `elementor/element/{élément}/{section}/after_section_end`, `elementor/frontend/before_render` et `after_render`, `elementor/dynamic_tags/register`, `elementor/editor/before_enqueue_styles` et `elementor/preview/enqueue_styles` existent toujours et ne sont pas dépréciés ;
-  - les sections `section_advanced` (colonne, section), `_section_style` (widgets) et `section_layout` (conteneur) existent toujours ;
-  - les types de contrôles utilisés, les catégories de balises dynamiques, la classe `Tag`, ainsi que `is_edit_mode()` et `is_preview_mode()` n'ont pas changé ;
-  - éléments Atomic : seul changement, deux lignes sans effet sur le fork (badge « Nouveau » et une vérification de skin).
-- Changelogs d'Elementor et d'Elementor Pro 4.4.0 lus : nouveaux éléments (Liste, Google Maps, Carrousel), MCP, formulaires Atomic. Rien ne retire ni ne modifie ce que le fork utilise.
+- WordPress 7.1.4 → 7.1.5 (version de maintenance), Elementor 4.4.0 → 4.4.1, Elementor Pro 4.4.0 → 4.4.1. Le plugin d'origine n'a pas changé. Le code du fork n'a pas changé non plus.
+- Compatibilité avec Elementor 4.4.1 vérifiée dans le code téléchargé sur wordpress.org (comparaison avec la 4.4.0) :
+  - les fichiers modifiés concernent la sécurité des attributs personnalisés des éléments Atomic, la sauvegarde des documents, les images, la bibliothèque de modèles, MCP et « Agent Ready » ;
+  - aucun ne touche ce que le fork utilise : les crochets (`elementor/element/...after_section_end`, `elementor/frontend/before_render` et `after_render`, `elementor/dynamic_tags/register`, `elementor/editor/before_enqueue_styles`, `elementor/preview/enqueue_styles`), les types de contrôles, la classe `Tag`, le module des balises dynamiques, `is_edit_mode()` et `is_preview_mode()` sont identiques.
+- Changelogs d'Elementor et d'Elementor Pro 4.4.1 lus : compatibilité WordPress 7.2, renforcement de la sécurité des attributs et des droits, corrections MCP. Rien ne concerne les contrôles, les balises dynamiques ou le rendu utilisés par le fork.
 
 ## Points audités
 
-- Failles publiques de Dynamic Conditions (Patchstack, WPScan, NVD) : une seule, CVE-2025-22642 (XSS, versions ≤ 1.7.4). **Corrigée dans le fork** : les trois sorties concernées sont échappées (`includes/class-public.php` lignes 116, 122 et 129). Comparaison des versions 1.7.4 et 1.7.5 d'origine faite.
-- Failles Elementor récentes : XSS d'Elementor ≤ 4.3.5 (corrigée en 4.3.6), faille critique d'envoi de fichiers d'Elementor Pro ≤ 4.2.1 (corrigée en 4.2.2). Aucune ne concerne les fonctions utilisées par le fork. Il faut seulement que les sites soient à jour.
-- Relecture ligne par ligne des 8 fichiers PHP et du fichier JS : XSS, données du visiteur, nonce et droits d'accès, SQL, exécution de code, fuite d'information, mise à jour automatique, appels réseau, JavaScript.
+- Failles publiques de Dynamic Conditions (Patchstack, WPScan, NVD) : toujours une seule, CVE-2025-22642 (XSS, versions ≤ 1.7.4). **Corrigée dans le fork** : les trois sorties concernées sont échappées (`includes/class-public.php` lignes 116, 122 et 129). Vérifié à nouveau en comparant les versions 1.7.4 et 1.7.5 d'origine.
+- Failles Elementor récentes :
+  - CVE-2026-109878 : faille XSS d'Elementor jusqu'à la 4.4.0, **corrigée en 4.4.1**. Elle ne concerne pas les fonctions utilisées par le fork, mais **les sites doivent passer à Elementor 4.4.1**.
+  - CVE-2026-2307 (fuite de données utilisateurs, Elementor ≤ 4.0.5) et CVE-2026-104718 (XSS, Elementor < 4.3.6) : anciennes versions, sans lien avec le fork.
+- Relecture ligne par ligne des 8 fichiers PHP, du fichier JS et du fichier de publication GitHub : XSS, données du visiteur, nonce et droits d'accès, SQL, exécution de code, fuite d'information, mise à jour automatique, appels réseau, JavaScript.
   - Aucune action admin ou AJAX, aucune route REST, aucune requête SQL directe, ni `eval` ni `unserialize`.
   - Le mode debug ne s'affiche qu'aux personnes qui peuvent modifier des articles ou des pages, et son contenu est échappé.
-  - Mise à jour automatique (`class-updater.php`) : un seul appel réseau, vers une adresse fixe en HTTPS (`api.github.com`). Le zip n'est accepté que s'il vient de `https://github.com/agence-zanetti/agence-zanetti-dynamic-conditions/releases/download/`. Les brouillons et les préversions sont refusés, et le numéro de version est contrôlé. GitHub redirige ensuite le téléchargement vers son propre serveur de fichiers, ce qui est normal et ne peut pas être évité.
-  - JavaScript : pas d'`innerHTML`, pas d'`eval`. Un sélecteur CSS invalide est ignoré sans erreur.
+  - Mise à jour automatique (`class-updater.php`) : un seul appel réseau, vers une adresse fixe en HTTPS (`api.github.com`). Le zip n'est accepté que s'il vient de `https://github.com/agence-zanetti/agence-zanetti-dynamic-conditions/releases/download/`. Brouillons et préversions refusés, numéro de version contrôlé.
+  - JavaScript : pas d'`innerHTML`, pas d'`eval`.
 - Fichiers embarqués : aucune bibliothèque tierce dans le dépôt.
 - Secrets : aucun mot de passe, jeton ou clé dans le dépôt ni dans son historique.
-- Outils : `php -l` sans erreur. PHPCS (WordPress.Security, WordPress.DB, phpcs-security-audit) : seulement des faux positifs ou les points mineurs ci-dessous.
+- Outils : `php -l` sans erreur. PHPCS (WordPress.Security, WordPress.DB, phpcs-security-audit) : mêmes résultats que la semaine dernière, seulement des faux positifs ou les points mineurs ci-dessous.
 
 ## Points mineurs (pas de correction)
 
@@ -48,5 +48,5 @@ Résultat : **aucun problème critique ni important**. Quelques points mineurs, 
 
 ## Limites de l'audit
 
-- La fiche Wordfence de Dynamic Conditions n'a pas pu être lue (page inaccessible aux robots). Patchstack, WPScan et NVD ont bien été consultés et concordent : une seule faille, corrigée.
+- La fiche Wordfence de Dynamic Conditions n'a pas pu être lue (page vide pour les robots). Patchstack, WPScan et NVD ont bien été consultés et concordent : une seule faille, corrigée.
 - Elementor Pro est payant, donc son code ne peut pas être téléchargé. Les fonctions Pro utilisées par le fork (balise `numberposts`, filtrage des popups) ont été vérifiées seulement à partir du changelog public, pas dans le code.
